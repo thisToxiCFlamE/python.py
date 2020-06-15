@@ -1,0 +1,11 @@
+README.rst
+setup.py
+python/__init__.py
+python/snake.py
+python.py.egg-info/PKG-INFO
+python.py.egg-info/SOURCES.txt
+python.py.egg-info/dependency_links.txt
+python.py.egg-info/top_level.txt
+python/colors/__init__.py
+python/colors/finder.py
+python/extras/__init__.py
