@@ -1,24 +1,27 @@
 # Finder class from the `python.colors` module.
 
 class Finder:
-    def __init__(self):
-        self.pyblue = 0x3474a5
-        self.pyyellow = 0xffd947
-        self.pycolors = [self.pyblue, self.pyyellow]
+    """The Finder class from the `python.colors` module.
     
-    def ispycolor(self, color):
+    Available functions:\n
+    `Finder.ispycolor(color)` - Returns a boolean from given hex code.\n
+    `Finder.getpycolor(colname)` - Returns a hex code from given Python color name.\n
+    `Finder.getcolor(colname)` - Returns a hex code from given color name."""
+
+    pyblue = 0x3474a5
+    pyyellow = 0xffd947
+    pycolors = [pyblue, pyyellow]
+    
+    @classmethod
+    def ispycolor(cls, color):
         """Returns True if the given hex is one of the two Python colors.
         
         @param color: An hex code prefixed by 0x"""
 
-        if color == self.pyblue:
-            return True
-        elif color == self.pyyellow:
-            return True
-        else:
-            return False
+        return color in cls.pycolors
     
-    def getpycolor(self, colname):
+    @staticmethod
+    def getpycolor(colname):
         """Gets the hex code for a color name. It must be a color from Python. If you're looking for ALL colors, you might want to use `Finder.getcolor(colname)`
         
         @param colname: A Python color name ("blue" or "yellow")."""
@@ -30,10 +33,11 @@ class Finder:
         else:
             return "This only works using Python colors. You might want to use 'Finder.getcolor(colname)'"
     
-    def getcolor(self, colname):
+    @staticmethod
+    def getcolor(colname):
         """Gets the hex code for ANY basic color. Blue and yellow do not return the Python ones. If you want that you might want to use `Finder.getpycolor(colname)`
         
-        @param colname: A basic color name."""
+        @param colname: A basic color name ("red", "yellow", "green", "turquoise" or "blue")."""
 
         if colname.lower() == "red":
             return "ff0000"
@@ -45,5 +49,3 @@ class Finder:
             return "00ffff"
         elif colname.lower() == "blue":
             return "0000ff"
-
-Finder = Finder()
